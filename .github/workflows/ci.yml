@@ -17,7 +17,9 @@ jobs:
           java-version: '17'
 
       - name: Compile Java Code
-        run: javac Main.java
+        run: javac src/Main.java
+        working-directory: ${{ github.workspace }}
 
       - name: Run Java Program
-        run: java Main
+        run: java -cp src Main
+        working-directory: ${{ github.workspace }}
