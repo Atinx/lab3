@@ -10,6 +10,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      - name: Debug - List Repository Files
+        run: ls -R
+        working-directory: ${{ github.workspace }}
+
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
@@ -17,9 +21,10 @@ jobs:
           java-version: '17'
 
       - name: Compile Java Code
-        run: javac src/Main.java
+        run: javac src/main/java/com/example/App.java
         working-directory: ${{ github.workspace }}
 
       - name: Run Java Program
-        run: java -cp src Main
+        run: java -cp src/main/java com.example.App
         working-directory: ${{ github.workspace }}
+
